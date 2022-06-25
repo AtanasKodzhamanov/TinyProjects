@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import pathlib
 
+# Purpose: to find and list files that eat up your storage
 
 def GetFileSizes(path, output, minsize, top):
     paths = []
