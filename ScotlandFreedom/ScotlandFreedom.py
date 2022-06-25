@@ -17,6 +17,6 @@ def GetFileSizes(path, numfiles):
     a = list(dict2.items())
     for i in range(-numfiles, 0):
         print(a[i])
-
+        print(a[i])
 
 GetFileSizes('D:\\', 200)
