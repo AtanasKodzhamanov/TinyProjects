@@ -1,12 +1,24 @@
-from this import d
 
 
-class DailyBrief(){
+class DailyBrief():
+    def __init__ (self):
+        self.workouts={}
 
-    __init__(self):
-        
-d
-}
+
+    def add_workout_shedule(day, muscleGroup):
+        week={
+        "monday": [],
+        "tuesday": [],
+        "wednesday": [],
+        "thursday" : [],
+        "friday" : [],
+        "saturday" : [],
+        "sunday" : []
+        }
+        week[day.lower()]= muscleGroup      
+
+
+
 
 #def AddQuote(content)
 #def EmailScheduler(content,frequency)
