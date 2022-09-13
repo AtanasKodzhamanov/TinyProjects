@@ -1,6 +1,6 @@
 # TinyProjects
 ScotlandFreedom: 
-Lists all files and their size in a folder. 
+Lists all files and their size in a given folder. 
 The script is useful for when you need to clear up storage on your drive and remove unwanted files and folders. 
 
 MarcoPolo: 
