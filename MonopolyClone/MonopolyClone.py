@@ -66,3 +66,30 @@ for player in players:
         # Higher taxes from rents
         # Lower taxes from rents 
         # Other stuff
+
+    # Economics
+        # Competition effects
+
+    The Monopoly Authority
+    The Oligopoly Bureau
+    The Cartel Commission
+    The Anti-Trust Agency
+    The Price Fixing Department
+    The Collusion Office
+    The Market Control Division
+    The Competition Council
+    The Corporate Regulation Agency
+    The Fair Trade Commission
+    The Oligopoly Enforcement Office
+    The Collusion Prevention Agency
+    The Market Power Division
+    The Dominance Regulation Office
+    The Predatory Pricing Task Force
+    The Monopolistic Practices Unit
+    The Oligopoly Observatory
+    The Price Fixing Bureau
+    The Cartel Countermeasures Committee
+    The Market Manipulation Monitoring Agency
+    The Collusion Detection Department
+    The Predatory Pricing Prevention Office
+    The Fair Trade Enforcement Agency

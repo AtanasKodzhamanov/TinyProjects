@@ -28,16 +28,30 @@ for color in colors:
                 street["color"] = color
                 break
 
-organization_names = ["Department of Redundant Regulations", "Bureau of Endless Paperwork", "Office of Inefficient Procedures", "Agency of Unnecessary Complications"]
-
 organizations = {}
 
-for organization_name in organization_names:
-    organizations[organization_name] = {
+organizations = {
+    "Department of Redundant Regulations": {
+        "reward": 0,
+        "punishment": 0,
+        "effect_list": []
+    },
+    "Bureau of Endless Paperwork": {
+        "reward": 0,
+        "punishment": 0,
+        "effect_list": []
+    },
+    "Office of Inefficient Procedures": {
+        "reward": 0,
+        "punishment": 0,
+        "effect_list": []
+    },
+    "Agency of Unnecessary Complications": {
         "reward": 0,
         "punishment": 0,
         "effect_list": []
     }
+}
 
 
 def assign_positions():
