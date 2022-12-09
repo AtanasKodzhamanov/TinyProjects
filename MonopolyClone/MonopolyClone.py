@@ -61,3 +61,8 @@ for player in players:
         # Aggressive buyer
         # Aggresive builder
         # 
+
+    # Random events at the end of the turn
+        # Higher taxes from rents
+        # Lower taxes from rents 
+        # Other stuff
