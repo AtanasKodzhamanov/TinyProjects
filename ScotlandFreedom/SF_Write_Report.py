@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def CreateExcelReport(output, df, df_ext, df_folders):
     # Create ScotlandFreedomReport.xlsx
 
@@ -54,4 +55,4 @@ def CreateExcelReport(output, df, df_ext, df_folders):
     worksheet.insert_chart('F2', chart, {'x_offset': 2, 'y_offset': 2})
 
     # Close the Pandas Excel writer and output the Excel file.
-    writer.save()
+    writer.close()
