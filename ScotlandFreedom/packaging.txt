@@ -1,1 +1,1 @@
-pyinstaller --name ScotlandFreedom SF_GUI.py
+pyinstaller --noconsole --name ScotlandFreedom SF_GUI.py
