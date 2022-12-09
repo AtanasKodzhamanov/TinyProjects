@@ -5,9 +5,6 @@ import pathlib
 from xlsxwriter.utility import xl_rowcol_to_cell
 from SF_Write_Report import CreateExcelReport
 
-# Purpose: to find and list files that eat up your storage space and to provide additional analysis on the files and folders in the folder tree 
-
-
 def GetFileSizes(path, output, minsize, top):
     paths = []
     files = []

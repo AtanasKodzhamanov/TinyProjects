@@ -1,3 +1,5 @@
+import pandas as pd
+
 def CreateExcelReport(output, df, df_ext, df_folders):
     # Create ScotlandFreedomReport.xlsx
 
@@ -10,7 +12,7 @@ def CreateExcelReport(output, df, df_ext, df_folders):
     df_ext.to_excel(writer, sheet_name="Analysis")
     df_folders.to_excel(writer, sheet_name="Folder Analysis", index=False)
    
-    # format the excel output
+    # Format the Excel output.
     worksheet = writer.sheets["Kill List"]
     worksheet.set_column('A:A', 150)
     worksheet.set_column('B:B', 50)
