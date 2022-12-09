@@ -7,6 +7,9 @@ import pathlib
 from xlsxwriter.utility import xl_rowcol_to_cell
 from SF_Write_Report import CreateExcelReport
 from SF_Main import GetFileSizes
+import warnings
+
+warnings.simplefilter("ignore", category=UserWarning, module="pandas")
 
 # Create a GUI window using Tkinter
 window = tk.Tk()
