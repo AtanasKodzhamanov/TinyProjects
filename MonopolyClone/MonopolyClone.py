@@ -2,55 +2,106 @@ import random
 from BoardSetup import assign_positions
 
 # Set up the board, place properties and special locations.
-assign_positions()
+board=assign_positions()
 
-board_size=len(positions)
+board_size=len(board)
 #initialize the players
-num_players = 2
-players = [{"name": "Player 1", "position": 0, "money": 1000, "properties": []},
-{"name": "Player 2", "position": 0, "money": 1000, "properties": []}]
 
+players = [
+    {"name": "Player 1", "position": 0, "money": 100000, "properties": []},
+    {"name": "Player 2", "position": 0, "money": 100000, "properties": []},
+    {"name": "Player 3", "position": 0, "money": 100000, "properties": []},
+    {"name": "Player 4", "position": 0, "money": 100000, "properties": []},
+]
 
 #initialize the dice
-dice = [1, 2, 3, 4, 5]
-
- #start the game
-for player in players:
-# roll the dice
-    roll = random[dice]
-    player["position"] = (player["position"] + roll) 
+dice = [0, 1, 2, 3, 4, 5]
 
 
-    # pay rent 
-    # if player["position"] is equal to foreign owned property
-        # reduce this player's money
-        # have another player's money go up
+# Start game loop    
+while True:
+    for player in players:
 
-    #                 owner = properties[player["position"]]["owner"]
-#                     if owner != player["name"]:
-#                     rent = properties[player["position"]]["rent"]
-#                     player["money"] -= rent
-#                     owner_index = [i for i in range(len(players)) if players[i]["name"] == owner][0]
-#                     players[owner_index]["money"] += rent
-#                     print(f"{player['name']} has paid {rent} to {owner}.")
+        # Prompt the user to enter a command to roll the die
+        command = input("Press any key to throw the dice: ")
+        
+        # roll the dice
+        dice_roll = random.choice(dice)
+        print("You threw: " + str(dice_roll))
 
-    # if its a special property
-    # activate choices/effects    
-        # set up random choices for the AI 
+        # if the the player's current position + dice_roll exceeds the board_size, subtract the board size from the position
+        if ( player["position"]+dice_roll > board_size-1 ):
+            player["position"] = (player["position"] + dice_roll-board_size)
+            player["money"] += 2500
+        else:
+            player["position"] = (player["position"] + dice_roll) 
+        print( player["position"])
+        
+        # print the street they landed on
 
-    # if the property is free
-        # option to buy
+        street = board[player["position"]][0]
+        print("You landed on " + str(street))
 
-#         elif properties[player["position"]]["owner"] is None:
-#             property_name = properties[player["position"]]["name"]
-#             property_price = properties[player["position"]]["price"]
-#             if player["money"] >= property_price:
-#                 buy_property = input(f"{player['name']}, do you want to buy {property_name} for {property_price}? (y/n) ")
-#                 if buy_property.lower() == "y":
-#                     player["properties"].append(player["position"])
-#                         player["money"] -= property_price
-#                         properties[player["position"]]["owner"] = player["name"]
-#                         print(f"{player['name']} has bought {property_name}.")
+        # offer to buy the property if the owner is Public
+        if board[player["position"]][1]["owner"] == "Public" and board[player["position"]][1]["type"] == "Real Estate":
+            # Offer to buy the property
+            price = board[player["position"]][1]["price"]
+            response = input(f"Do you want to buy this property for ${price}? Y/N")
+
+            if response == "Y":
+                # Subtract the property's price from the player's money
+                player["money"] -= price
+
+                # Update the property's owner
+                board[player["position"]][1]["owner"] = player["name"]
+
+                # Add the property to the player's list of properties
+                player["properties"].append(board[player["position"]][0])
+                
+        # Initialize the owner_player variable
+        owner_player = None
+
+        if board[player["position"]][1]["type"] == "Real Estate":
+            if board[player["position"]][1]["owner"] != player["name"]:
+                # Calculate the rent
+                rent = board[player["position"]][1]["rent"]
+                house_multiplier = board[player["position"]][1]["house_multiplier"]
+                houses = board[player["position"]][1]["houses"]
+                rent *= house_multiplier ** houses
+
+                # Find the owner player
+                for p in players:
+                    if p["name"] == board[player["position"]][1]["owner"]:
+                        owner_player = p
+                        break
+                if owner_player is not None:         
+                    # Subtract the rent from the current player's money and add it to the owner player's money
+                    player["money"] -= rent
+                    owner_player["money"] += rent
+
+                    print(f"You paid ${rent} in rent to {owner_player['name']}")
+
+        # Build a house
+        
+        # Initialize the owner_player variable
+        owner_player = "Public"
+
+        if board[player["position"]][1]["owner"] == player["name"]:
+            # Prompt the user to build a house
+            response = input("Do you want to build a house on this property? Y/N")
+
+            if response == "Y":
+                # Check if the player has enough money to pay for the house
+                house_cost = board[player["position"]][1]["price"] / 2
+                if player["money"] >= house_cost:
+                    # Subtract the cost of the house from the player's money and increment the number of houses on the property
+                    player["money"] -= house_cost
+                    board[player["position"]][1]["houses"] += 1
+
+                    print("You built a house on {} for ${}".format(board[player["position"]][0], house_cost))
+                else:
+                    print("You don't have enough money to build a house")
+
 
 
 
@@ -70,26 +121,26 @@ for player in players:
     # Economics
         # Competition effects
 
-    The Monopoly Authority
-    The Oligopoly Bureau
-    The Cartel Commission
-    The Anti-Trust Agency
-    The Price Fixing Department
-    The Collusion Office
-    The Market Control Division
-    The Competition Council
-    The Corporate Regulation Agency
-    The Fair Trade Commission
-    The Oligopoly Enforcement Office
-    The Collusion Prevention Agency
-    The Market Power Division
-    The Dominance Regulation Office
-    The Predatory Pricing Task Force
-    The Monopolistic Practices Unit
-    The Oligopoly Observatory
-    The Price Fixing Bureau
-    The Cartel Countermeasures Committee
-    The Market Manipulation Monitoring Agency
-    The Collusion Detection Department
-    The Predatory Pricing Prevention Office
-    The Fair Trade Enforcement Agency
+    # The Monopoly Authority
+    # The Oligopoly Bureau
+    # The Cartel Commission
+    # The Anti-Trust Agency
+    # The Price Fixing Department
+    # The Collusion Office
+    # The Market Control Division
+    # The Competition Council
+    # The Corporate Regulation Agency
+    # The Fair Trade Commission
+    # The Oligopoly Enforcement Office
+    # The Collusion Prevention Agency
+    # The Market Power Division
+    # The Dominance Regulation Office
+    # The Predatory Pricing Task Force
+    # The Monopolistic Practices Unit
+    # The Oligopoly Observatory
+    # The Price Fixing Bureau
+    # The Cartel Countermeasures Committee
+    # The Market Manipulation Monitoring Agency
+    # The Collusion Detection Department
+    # The Predatory Pricing Prevention Office
+    # The Fair Trade Enforcement Agency

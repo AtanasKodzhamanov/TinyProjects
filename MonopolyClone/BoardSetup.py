@@ -10,12 +10,13 @@ streets = {}
 for i, street_name in enumerate(street_names):
     color = random.choice(colors)
     streets[street_name] = {
+        "type": "Real Estate",
         "color": color,
         "price": (i + 1) * 100,
         "rent": (i + 1) * 5,
         "house_multiplier": random.uniform(1.2, 1.4),
         "houses": 0,
-        "owner": None
+        "owner": "Public"
     }
 
 # Ensure that there are between 2 and 4 repetitions of each color
@@ -32,27 +33,34 @@ organizations = {}
 
 organizations = {
     "Department of Redundant Regulations": {
+        "type": "Effect",
         "reward": 0,
         "punishment": 0,
+        "owner": "Government",
         "effect_list": []
     },
     "Bureau of Endless Paperwork": {
+        "type": "Effect",
         "reward": 0,
         "punishment": 0,
+        "owner": "Government",
         "effect_list": []
     },
     "Office of Inefficient Procedures": {
+        "type": "Effect",
         "reward": 0,
         "punishment": 0,
+        "owner": "Government",
         "effect_list": []
     },
     "Agency of Unnecessary Complications": {
+        "type": "Effect",
         "reward": 0,
         "punishment": 0,
+        "owner": "Government",
         "effect_list": []
     }
 }
-
 
 def assign_positions():
     # Create an empty array with the same length as the number of organizations and streets
@@ -65,5 +73,5 @@ def assign_positions():
     # Assign each street a position in the array
     for i, street_name in enumerate(streets.keys()):
         positions[len(organizations) + i] = (street_name, streets[street_name])
-    print(positions)
+
     return positions
