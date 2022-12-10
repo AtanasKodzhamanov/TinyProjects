@@ -8,10 +8,10 @@ board_size=len(board)
 #initialize the players
 
 players = [
-    {"name": "Player 1", "position": 0, "money": 100000, "properties": []},
-    {"name": "Player 2", "position": 0, "money": 100000, "properties": []},
-    {"name": "Player 3", "position": 0, "money": 100000, "properties": []},
-    {"name": "Player 4", "position": 0, "money": 100000, "properties": []},
+    {"name": "Player 1", "position": 0, "money": 100000, "properties": [], "mortgage": 0, "rent": 0, "expenses": 0},
+    {"name": "Player 2", "position": 0, "money": 100000, "properties": [], "mortgage": 0, "rent": 0, "expenses": 0},
+    {"name": "Player 3", "position": 0, "money": 100000, "properties": [], "mortgage": 0, "rent": 0, "expenses": 0},
+    {"name": "Player 4", "position": 0, "money": 100000, "properties": [], "mortgage": 0, "rent": 0, "expenses": 0},
 ]
 
 #initialize the dice
@@ -38,7 +38,6 @@ while True:
         print( player["position"])
         
         # print the street they landed on
-
         street = board[player["position"]][0]
         print("You landed on " + str(street))
 
