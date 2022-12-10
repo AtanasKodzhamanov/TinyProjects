@@ -70,15 +70,17 @@ organizations = {
 }
 
 def assign_positions():
-    # Create an empty array with the same length as the number of organizations and streets
-    positions = [None] * (len(organizations) + len(streets))
+    # Create an empty list to hold the values from the streets and organizations dictionaries
+    positions = []
 
-    # Assign each organization a position in the array
-    for i, organization_name in enumerate(organizations.keys()):
-        positions[i] = (organization_name, organizations[organization_name])
+    # Add the values from the streets dictionary to the positions list
+    positions.extend(streets.values())
 
-    # Assign each street a position in the array
-    for i, street_name in enumerate(streets.keys()):
-        positions[len(organizations) + i] = (street_name, streets[street_name])
+    # Add the values from the organizations dictionary to the positions list
+    positions.extend(organizations.values())
 
+    random.shuffle(positions)
+
+    # Print the positions list
     return positions
+

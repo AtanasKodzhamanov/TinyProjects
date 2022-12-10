@@ -39,5 +39,4 @@ business_benefits = {
     "veterinary clinic": ["Stable demand for pet care services", "Opportunities to build a loyal customer base", "Opportunities for growth and expansion", "Opportunities to offer a wide range of services"],
     "department store": ["Opportunities to offer a wide range of products", "Stable demand for products", "Opportunities for growth and expansion", "Opportunities to build a loyal customer base"],
     "men's clothing store": ["Opportunities to sell unique, high-quality products", "Stable demand for men's clothing", "Opportunities for growth and expansion", "Opportunities to build a loyal customer base"],
-    "barber shop": ["Opportunities for repeat business", "Opportunities to offer a wide range of services", "Opportunities to build a loyal customer base", "Opportunities for growth and expansion"],
-    "credit union
+    "barber shop": ["Opportunities for repeat business", "Opportunities to offer a wide range of services", "Opportunities to build a loyal customer base", "Opportunities for growth and expansion"]}
