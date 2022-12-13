@@ -11,7 +11,7 @@ This code uses the Selenium webdriver to open a Firefox browser and navigate to 
 This code allows the user to download YouTube videos by entering a list of URLs. The code uses the pytube library to download the videos. The videos are downloaded in 1080p resolution, if available. The code loops through the list of URLs and attempts to download each video. If there is an error during the download process, the code continues to the next URL and prints an error message. After all of the URLs have been processed, the code prints a list of successfully downloaded videos. By default, the downloaded videos are saved to the same directory as the script. I used this to download CS50 lectures on my tablet for offline use. 
 <br>
 <br>
-<b>Monopoly:</b> 
+<b>MonopolyClone:</b> 
 A Monopoly inspired game. Work in progress. 
 <br>
 <br>
