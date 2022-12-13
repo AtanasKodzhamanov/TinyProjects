@@ -1,8 +1,6 @@
 # TinyProjects
 ScotlandFreedom: 
-Lists all files and their size in a given folder. 
-The script is useful for when you need to clear up storage on your drive and remove unwanted files and folders. 
+The code traverses a directory tree and collects information about the files and folders in the tree. It then analyzes the collected data and outputs the results to an Excel file. The code allows the user to specify the minimum size of files to include in the analysis and the number of top results to show. It also calculates the total size of files in each folder and the depth of each folder in the directory tree. I used this to identify files and folders eating up my SSD storage.
 
 MarcoPolo: 
-Given a list of URLs it cycles through each link and takes a full screenshot of the page. 
-Uses Selenium, Firefox and multithreading. The script is used to document evidence for trial bundle preparation. 
+This code uses the Selenium webdriver to open a Firefox browser and navigate to a list of URLs. The URLs are read from an Excel file and the corresponding web pages are screenshot. The screenshots are saved to a specified directory. The code also uses threading to distribute the workload across multiple threads and run the tasks in parallel. The script is used to document evidence for trial bundle preparation. 
