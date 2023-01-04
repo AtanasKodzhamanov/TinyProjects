@@ -1,1 +1,1 @@
-pyinstaller --noconsole --name ScotlandFreedom SF_GUI.py
+pyinstaller --noconsole --name GiantFileSafari gfs_interface.py
