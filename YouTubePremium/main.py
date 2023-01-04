@@ -1,10 +1,18 @@
 from pytube import YouTube
-https://www.youtube.com/watch?v=NXaVLXSZdEw&ab_channel=DWDocumentary
+import os
+
+
+# Set output folder to be default where the script is located as a default
+output_folder = os.path.dirname(os.path.abspath(__file__))
+
+print("Files will be stored here: " + output_folder)
+
+
 # Ask the user for a list of URLs
 urls = input("Enter a list of YouTube URLs, separated by commas: ")
 
 # Split the list of URLs into individual URLs
-url_list = urls.split(',')
+url_list = urls.split(', ')
 
 # Define a callback function that will be called with the download progress
 def progress_function(stream, chunk, bytes_remaining):
@@ -22,7 +30,8 @@ for url in url_list:
     
   try:
     # Create a YouTube object with the URL of the video
-    video = YouTube(url).streams.first().download()
+    video = YouTube(url).streams.filter(resolution="1080p").first()
+    video.download()
     # Add the URL to the list of downloaded videos
     downloaded_videos.append(url)
   except:

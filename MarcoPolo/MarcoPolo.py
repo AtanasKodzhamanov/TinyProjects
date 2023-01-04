@@ -1,7 +1,5 @@
 import threading                                                                                                                                
-from time import time
 from selenium import webdriver
-from time import sleep
 from webdriver_manager.firefox import GeckoDriverManager
 import pandas as pd
 import os 
@@ -37,14 +35,20 @@ def Browse(loc, driver):
         driver.get_full_page_screenshot_as_file(output_path+file)
     driver.quit() # once you are done looping through the list close the browser
 
+# Set the options for the Firefox webdriver to run in headless mode
+options = Options()
+options.headless = True
+
 lenght=len(url_list)
-exec(f't0 = threading.Thread(target=Browse, args=(0,webdriver.Firefox(executable_path=GeckoDriverManager().install())))')
+exec(f't0 = threading.Thread(target=Browse, args=(0,webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)))')
 exec(f't0.start()')
 
 for t in range(1,7):
     loc=int(lenght/7*t)
-    exec(f't{t} = threading.Thread(target=Browse, args=(loc,webdriver.Firefox(executable_path=GeckoDriverManager().install())))')
+    exec(f't{t} = threading.Thread(target=Browse, args=(loc,webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)))')
     exec(f't{t}.start()')
+
+
 
 # To do:
 # close broswer once it finishes its own subset as opposed to cycling through the entire list
