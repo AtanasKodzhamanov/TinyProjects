@@ -1,7 +1,5 @@
 import tkinter as tk
 from tkinter import filedialog
-from math import fabs
-from xlsxwriter.utility import xl_rowcol_to_cell
 from gfs_report import CreateExcelReport
 from gfs_main import GetFileSizes
 
@@ -51,15 +49,19 @@ e4 = tk.Entry(window, textvariable=top, font=("Verdana", 11), bg="white")
 e4.grid(row=5, column=1, padx=10, pady=10)
 
 # Create browse buttons for the path and output fields
+
+
 def browse_button_path():
     # Allow the user to select a directory and store it in the path variable
     filename = filedialog.askdirectory()
     path.set(filename)
 
+
 def browse_button_output():
     # Allow the user to select a directory and store it in the output variable
     filename = filedialog.askdirectory()
     output.set(filename)
+
 
 b1 = tk.Button(
     window,
@@ -88,6 +90,7 @@ b2.grid(row=3, column=2)
 
 # Create a submit button that calls the GetFileSizes function
 
+
 def submit():
     # Get the values entered by the user
     path_value = path.get()
@@ -100,6 +103,7 @@ def submit():
     # Call the GetFileSizes function
     GetFileSizes(path=path_value, output=output_value,
                  minsize=minsize_value, top=top_value)
+
 
 b2 = tk.Button(
     window,
