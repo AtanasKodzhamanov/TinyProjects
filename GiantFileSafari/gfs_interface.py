@@ -1,9 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
 from math import fabs
-import os
-import pandas as pd
-import pathlib
 from xlsxwriter.utility import xl_rowcol_to_cell
 from gfs_report import CreateExcelReport
 from gfs_main import GetFileSizes

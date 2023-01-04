@@ -1,8 +1,6 @@
-from math import fabs
 import os
 import pandas as pd
 import pathlib
-from xlsxwriter.utility import xl_rowcol_to_cell
 from gfs_report import CreateExcelReport
 
 
