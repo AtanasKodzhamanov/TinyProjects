@@ -67,7 +67,7 @@ def GetFileSizes(path, output, minsize, top):
 
 
 # Folder tree to be parsed | Location of the output report | Minimum size of file to be shown (GB) | Top x results to be shown
-GetFileSizes(path="D:\\Torrents", output="D:\\", minsize=0.5, top=100)
+GetFileSizes(path="D:\\", output="D:\\", minsize=0.5, top=100)
 
 # To get all of the files in the root folder
 # GetFileSizes(path="D:\\", output="D:\\", minsize=0, top="All")
